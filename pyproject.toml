@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "chronicles"
+version = "0.1.0"
+description = ""
+authors = ["Radosław Ganczarek <radoslaw@ganczarek.in>"]
+license = "BSD"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+Django = "^4.1.5"
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = "==22.12.0"
+django-stubs = "==1.14.0"
+isort = "==5.11.4"
+mypy = "==0.991"
+pylint = "==2.15.10"
+pylint-django = "==2.5.3"
+pytest = "==7.2.1"
+pytest-django = "==4.5.2"
+pyupgrade = "==3.3.1"
+ruff = "==0.0.236"
+tox = "==4.4.2"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+select = ["E", "F", "B", "Q"]
+target-version = "py311"
+
+
+[tool.black]
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+
+
+[tool.coverage.run]
+branch = true
+source = ["src", "tests"]
+
+[tool.coverage.report]
+skip_covered = true
+show_missing = true
+
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_decorated = true
+disallow_any_explicit = true
+disallow_any_expr = true
+disallow_any_generics = true
+disallow_any_unimported = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+implicit_optional = true
+plugins = ["mypy_django_plugin.main"]
+python_version = "3.11"
+show_error_context = true
+strict = true
+strict_equality = true
+strict_optional = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+[tool.django-stubs]
+django_settings_module = "chronicles.config.settings"
